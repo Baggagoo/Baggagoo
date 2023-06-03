@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExerciciosComplementares
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //EXERCICIO 2 
+
+            int num1;
+
+            do
+            {
+                Console.WriteLine("Digite um numero maior que 3 para iniciarmos a sequência de Fibonnaci");
+                num1 = Convert.ToInt32(Console.ReadLine());
+
+            } while (num1 <= 3);
+
+            int[] sequencia = new int[num1];
+
+            sequencia[0] = 1;
+            sequencia[1] = 1;
+
+            for(int i = 2; i < num1; i++)
+            {
+                sequencia[i] = sequencia[i - 1] + sequencia[i - 2]; // Aqui faço o calculo com o valor das posições baseado em i   
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Iniciando sequência de Fibonnaci!");
+            Console.WriteLine();
+
+            for(int i = 0; i < num1; i++)
+            {
+                Console.Write($"{sequencia[i]}");
+                
+                if (i != num1 - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+
+            Console.ReadKey();
+        }   
+    }
+}
