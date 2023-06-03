@@ -1,0 +1,49 @@
+ // Cinema//
+
+            string[,] cinema = new string[11, 11];
+            int i, j, fila, cadeira, opcao;
+            
+
+            for (i = 1; i <= 10; i++)
+                for (j = 1; j <= 10; j++)
+                    cinema[i-1, j-1] = ("o");
+            do
+            {
+                Console.WriteLine("1 - Layout: ");
+                Console.WriteLine("2 - Reservar uma poltrona: ");
+                Console.WriteLine("3 - Sair");
+                opcao = Convert.ToInt16(Console.ReadLine());
+
+                switch (opcao)
+                {
+                    case 1:
+                        for (i = 1; i <= 10; i++)
+                        {
+                            for (j = 1; j <= 10; j++)
+                            {
+                                Console.Write(cinema[i-1, j-1] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("Digite sua fileira: ");
+                        fila = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite sua cadeira: ");
+                        cadeira = int.Parse(Console.ReadLine());
+
+                        if (cinema[fila-1, cadeira-1] == "o")
+                        {
+                            cinema[fila-1, cadeira-1] = "x";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cadeira ocupada");
+                        }
+                        break;
+                }
+
+
+            } while (opcao != 3);
+            
+            Console.ReadKey();
