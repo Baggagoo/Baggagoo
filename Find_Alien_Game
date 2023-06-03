@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExerciciosComplementares
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //EXERCICIO 4
+
+            int[] arvores = new int [100];
+            Random random = new Random();
+            int ET, shoot = 5, tentativa;
+            
+            for(int i = 0; i < 100; i++) 
+            {
+                arvores[i] = i + 1;
+            }
+            
+            ET = random.Next(1,101);
+            arvores[ET] = ET;
+            
+            
+         
+
+            while (shoot > 0)
+            {
+                Console.WriteLine($"Você tem {shoot} tentativas, Boa Sorte!");
+                Console.WriteLine();
+                Console.Write("Digite um numero de 1 a 100 para adivinhar onde está o Alien:");
+                tentativa = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+
+                if (tentativa < 1 || tentativa > 100)
+                {
+                    Console.WriteLine("Digite um número valido");
+                    Console.WriteLine();
+                }
+                else
+                {
+
+                    if (tentativa > ET)
+                    {
+
+                        Console.WriteLine("Estoy más a la  izquierda, ARRIBA!");
+                        Console.WriteLine();
+                    }
+                    else if (tentativa < ET)
+                    {
+                        Console.WriteLine("Estoy más a la derecha, AY AY AY");
+                        Console.WriteLine();
+                    }
+                    else if (tentativa == ET)
+                    {
+                        Console.WriteLine("Jo soy queria me buscar conhecimento, entonces porque fizestes isto?");
+                        Console.WriteLine("Parabéns você acabou de matar um Alien a sangue frio por puro preconceito");
+                        Console.WriteLine();
+                        break;
+                    }
+                    
+                }
+                shoot = shoot - 1;
+            }
+
+            if (shoot == 0)
+            {
+                Console.WriteLine("ESTOY MUY BRABO, LOGO VOY QUEBRAR SU CARA HUMANO!");
+            }
+
+            Console.WriteLine("Obrigado por jogar!");
+            Console.ReadKey();  
+        }   
+    }
+}
